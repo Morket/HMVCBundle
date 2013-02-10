@@ -8,6 +8,7 @@ env:
   - SYMFONY_VERSION='2.2.*@dev'
 
 before_script:
+  - composer self-update
   - composer require --no-update symfony/symfony=$SYMFONY_VERSION
   - composer install --prefer-source --dev
 
