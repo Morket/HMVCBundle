@@ -1,0 +1,7 @@
+services:
+    morket_hmvc.raw_response_listener:
+        class: Morket\Bundle\HMVCBundle\EventListener\RawResponseListener
+        arguments: [@service_container]
+        tags:
+            - { name: kernel.event_listener, event: kernel.view, method: onKernelView, priority: 128 }
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 128 }
