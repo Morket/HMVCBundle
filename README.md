@@ -36,7 +36,7 @@ The HMVCBundle won't affect normal behavior, it will only add functionality for 
 
 **kernel.view event**
 
-However, it WILL probably and SHOULD block your kernel.view (onKernelView()) events when making an internal call. This is necessary to make sure no HTML/JSON/XML is rendered for internal (HMVC) requests. The kernel.view event is defined with priority 128, so it will block FOSRestBundle's and KnpRadBundle's kernel.view events, but you can still out-prioritize it. This is native Symfony behavior, Symfony will always allow only one kernel.view per (sub)request, because output can only be rendered once.
+The Bundle WILL probably and SHOULD block your kernel.view (onKernelView()) events when making an internal call. This is necessary to make sure no HTML/JSON/XML is rendered for internal (HMVC) requests. The kernel.view event is defined with priority 128, so it will block FOSRestBundle's and KnpRadBundle's kernel.view events, but you can still out-prioritize it. This is native Symfony behavior, Symfony will always allow only one kernel.view per (sub)request, because output can only be rendered once.
 (Note: kernel.view is fired when a Controller returns something else than a Response object, like an array of data or a View object)
 
 **Exceptions**
