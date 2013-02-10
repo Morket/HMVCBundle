@@ -9,6 +9,11 @@
  */
 namespace Morket\Bundle\HMVCBundle\Controller;
 
+/**
+ * Include this trait to get HMVC helper functions in your controller
+ *
+ * @author Erik Duindam <erik.duindam@morket.com>
+ */
 trait HMVC
 {
     /**
@@ -34,25 +39,6 @@ trait HMVC
      */
     public function call($route, $attributes = array(), $data = array(), $query = array(), $rawResponse = false)
     {
-        $defaults = $this->get('router')->getRouteCollection()->get($route)->getDefaults();
-
-        $controller = $defaults['_controller'];
-        $attributes['_hmvc'] = $controller;
-        $attributes['_controller'] = $controller;
-
-        $subRequest = $this->get('request')->duplicate($query, null, $attributes);
-        $subRequest->request = new \Symfony\Component\HttpFoundation\ParameterBag($data);
-
-        $response = $this->get('http_kernel')->handle($subRequest, \Symfony\Component\HttpKernel\HttpKernelInterface::SUB_REQUEST);
-
-        if ($rawResponse || !$response instanceof \Morket\Bundle\HMVCBundle\HttpFoundation\Response) {
-            return $response;
-        }
-
-        if ($response->hasSingleResult()) {
-            return $response->getSingleResult();
-        }
-
-        return $response->getResult();
+        return $this->get('morket_hmvc.agent')->call($route, $attributes, $data, $query, $rawResponse);
     }
 }

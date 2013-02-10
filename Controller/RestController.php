@@ -11,6 +11,11 @@ namespace Morket\Bundle\HMVCBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
 
+/**
+ * Controller extending FOSRestBundle Controller
+ *
+ * @author Erik Duindam <erik.duindam@morket.com>
+ */
 abstract class RestController extends FOSRestController
 {
     use HMVC;

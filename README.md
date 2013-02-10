@@ -34,6 +34,7 @@ Param            | Explanation
 
 You can still use your own Controllers, Event Listeners, Views, Templates and Serializers.
 The HMVCBundle won't affect normal behavior, it will only add functionality for internal requests.
+You can also call the service **morket_hmvc.agent**, which has the same call() method as documented above.
 
 **kernel.view event**
 
@@ -201,11 +202,10 @@ Todo's
 ----------------
 1. Testing
 2. PHP 5.3 support
-3. Add HMVC service to be injected by container
-4. Convert redirects to data
-5. More/better examples in README
-6. Automatic caching mechanism
-7. Contribute to FOSRestBundle/KnpRadBundle to be able to use both Controllers without copying code
+3. Convert redirects to data
+4. More/better examples in README
+5. Automatic caching mechanism
+6. Contribute to FOSRestBundle/KnpRadBundle to be able to use both Controllers without copying code
 
 MIT License
 -------------------------------------------------------------------------------

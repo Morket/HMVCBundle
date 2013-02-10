@@ -17,6 +17,11 @@ use FOS\RestBundle\Routing\ClassResourceInterface;
 
 use Knp\RadBundle\Controller\Controller as RadController;
 
+/**
+ * Controller extending KnpRadBundle's Controller and copying FOSRestBundle Controller's helper functions.
+ *
+ * @author Erik Duindam <erik.duindam@morket.com>
+ */
 abstract class RadRestController extends RadController
 {
     use HMVC;
