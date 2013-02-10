@@ -53,6 +53,8 @@ Just use the trait Morket\Bundle\HMVCBundle\Controller\HMVC in each Controller y
 namespace Acme\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 use Morket\Bundle\HMVCBundle\Controller\HMVC;
 
 class ProductsController extends Controller
@@ -64,7 +66,7 @@ class ProductsController extends Controller
         try {
             $user = $this->call('get_user', ['id' => $this->getRequest()->get('user_id')]);
             // do something
-        } catch (Acme\NotFoundException $e) {
+        } catch (NotFoundException $e) {
             // user not found
         }
     }
