@@ -148,9 +148,11 @@ class UsersController extends RadRestController
 <?php
 namespace Acme\Controller;
 
-use Morket\Bundle\HMVCBundle\Controller\RadRestController;
-class InsaneController extends RadRestController
+use Morket\Bundle\HMVCBundle\Controller\HMVC;
+class InsaneController
 {
+    use HMVC;
+
     public function insaneAction()
     {
         $user = $this->call('get_user', ['id' => 1]); // get a user
