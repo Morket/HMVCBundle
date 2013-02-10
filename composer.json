@@ -10,18 +10,22 @@
         {
             "name": "Erik Duindam",
             "email": "erik.duindam@morket.com"
-        },
+        }
     ],
-
+    "config": {
+        "bin-dir": "bin"
+    },
     "require": {
         "php":                            ">=5.4.0",
         "symfony/framework-bundle":       ">=2.0,<2.3-dev"
     },
+    "require-dev": {
+        "phpspec/phpspec2":                   "dev-develop"
+    },
     "suggest": {
         "friendsofsymfony/rest-bundle":  "Add support for FOSRestBundle Controllers",
-        "knplabs/rad-bundle":            "Add support for Knp RadBundle Controllers",
+        "knplabs/rad-bundle":            "Add support for Knp RadBundle Controllers"
     },
-
     "autoload": {
         "psr-0": { "Morket\\Bundle\\HMVCBundle": "" }
     },

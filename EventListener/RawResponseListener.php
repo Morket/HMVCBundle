@@ -11,12 +11,11 @@
 namespace Morket\Bundle\HMVCBundle\EventListener;
 
 use Morket\Bundle\HMVCBundle\HttpFoundation\Response;
+use Morket\Bundle\HMVCBundle\HttpFoundation\ResponseFactory;
 
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * The RawResponseListener class will populate Response objects with the raw returned data instead of
  * turning return data to HTML/JSON/XML/etc, so you can internally call controllers without worrying
@@ -27,16 +26,16 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class RawResponseListener
 {
     /**
-     * @var Symfony\Component\DependencyInjection\ContainerInterface
+     * @var \Morket\Bundle\HMVCBundle\HttpFoundation\ResponseFactory
      */
-    protected $container;
+    protected $responseFactory;
 
     /**
-     * @param ContainerInterface $container
+     * @param \Morket\Bundle\HMVCBundle\HttpFoundation\ResponseFactory $responseFactory
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(ResponseFactory $responseFactory)
     {
-        $this->container = $container;
+        $this->responseFactory = $responseFactory;
     }
 
     /**
@@ -50,7 +49,7 @@ class RawResponseListener
             return;
         }
 
-        $response = new Response();
+        $response = $this->responseFactory->createResponse();
 
         $result = $event->getControllerResult();
         if (is_array($result)) {
