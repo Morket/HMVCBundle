@@ -248,11 +248,9 @@ Feel free to contribute if you want to write this part. We use PHPSpec2 to descr
 Todo's
 ----------------
 1. Testing
-2. PHP 5.3 support
-3. Convert redirects to data
-4. More/better examples in README
-5. Automatic caching mechanism
-6. Contribute to FOSRestBundle/KnpRadBundle to be able to use both Controllers without copying code
+2. Convert redirects to data
+3. More/better examples in README
+4. Contribute to FOSRestBundle/KnpRadBundle to be able to use both Controllers without copying code
 
 Need help or want to contribute?
 --------------------------------
