@@ -1,5 +1,6 @@
 Morket's HMVCBundle (NOT STABLE YET)
 ====================================
+[![Build Status](https://secure.travis-ci.org/Morket/HMVCBundle.png?branch=master)](http://travis-ci.org/Morket/HMVCBundle)
 
 Why are external application calls using a RESTful interface while internal application calls consist of many custom Model methods? Why are internal services different from external services? They shouldn't. The current web is a cloud with services, now you're application can be as well.
 
