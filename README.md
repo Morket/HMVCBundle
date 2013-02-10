@@ -34,6 +34,8 @@ Param            | Explanation
 
 You can still use your own Controllers, Event Listeners, Views, Templates and Serializers.
 The HMVCBundle won't affect normal behavior, it will only add functionality for internal requests.
+
+**Using the service: morket_hmvc.agent**
 You can also call the service **morket_hmvc.agent**, which has the same call() method as documented above.
 
 **kernel.view event**
@@ -208,7 +210,7 @@ Currently HMVCBundle only properly supports FOSRestBundle's RouteDirectView, whi
 example above. In the near future we will add support for Symfony's native redirects. We will have to map the returned URL's
 back to routes and filter out the data. For example, when redirected to /users/1337, we would want to return ['id' => 1337].
 
-Feel free to contribute if you want to write this part. We use PHPSpec2 to describe behavior. 
+Feel free to contribute if you want to write this part. We use PHPSpec2 to describe behavior.
 
 Todo's
 ----------------
