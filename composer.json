@@ -16,7 +16,7 @@
         "bin-dir": "bin"
     },
     "require": {
-        "php":                            ">=5.4.0",
+        "php":                            ">=5.3.3",
         "symfony/framework-bundle":       ">=2.1,<2.3-dev"
     },
     "require-dev": {
