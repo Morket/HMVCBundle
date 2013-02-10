@@ -202,6 +202,7 @@ Todo's
 4. Convert redirects to data
 5. More/better examples in README
 6. Automatic caching mechanism
+7. Contribute to FOSRestBundle/KnpRadBundle to be able to use both Controllers without copying code
 
 MIT License
 -------------------------------------------------------------------------------
