@@ -29,7 +29,7 @@ class RawResponseListener extends ObjectBehavior
     {
         $attributeBag->get('_hmvc')->willReturn(false);
         $event->setResponse()->shouldNotBeCalled();
-        
+
         $this->onKernelView($event)->shouldReturn(null);
     }
 
@@ -43,10 +43,26 @@ class RawResponseListener extends ObjectBehavior
 
     function its_kernel_view_should_contain_the_controller_result($event, $attributeBag, $response)
     {
+        $controllerResult = array('something' => 'something');
+
         $attributeBag->get('_hmvc')->willReturn(true);
-        $event->getControllerResult()->willReturn(array('something' => 'something'));
+        $event->getControllerResult()->willReturn($controllerResult);
         $event->setResponse($response)->shouldBeCalled();
-        $response->setResult(array('something' => 'something'))->shouldBeCalled();
+        $response->setResult($controllerResult)->shouldBeCalled();
+
+        $this->onKernelView($event);
+    }
+
+    function its_kernel_view_should_convert_view_to_data($event, $attributeBag, $response)
+    {
+        $view = new \FOS\RestBundle\View\View;
+        $data = array('something' => 'somethingelse');
+        $view->setData($data);
+
+        $attributeBag->get('_hmvc')->willReturn(true);
+        $event->getControllerResult()->willReturn($view);
+        $event->setResponse($response)->shouldBeCalled();
+        $response->setResult($data)->shouldBeCalled();
 
         $this->onKernelView($event);
     }

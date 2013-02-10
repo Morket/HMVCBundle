@@ -17,10 +17,12 @@
     },
     "require": {
         "php":                            ">=5.3.3",
-        "symfony/framework-bundle":       ">=2.1,<2.3-dev"
+        "symfony/symfony":                "2.1.*"
     },
     "require-dev": {
-        "phpspec/phpspec2":                   "dev-develop"
+        "phpspec/phpspec2":              "dev-develop",
+        "friendsofsymfony/rest-bundle":  "dev-master",
+        "knplabs/rad-bundle":            "dev-develop"
     },
     "suggest": {
         "friendsofsymfony/rest-bundle":  "Add support for FOSRestBundle Controllers",
