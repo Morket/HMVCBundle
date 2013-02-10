@@ -222,6 +222,9 @@ Todo's
 5. Automatic caching mechanism
 6. Contribute to FOSRestBundle/KnpRadBundle to be able to use both Controllers without copying code
 
+Feel completely free to use the Issues on Github for any questions or comments on HMVCBundle or best practices
+when combining several bundles. Also feel free to send me a mail on <erik@morket.com>.
+
 MIT License
 -------------------------------------------------------------------------------
 Copyright (c) 2013 Morket <http://github.com/morket>
