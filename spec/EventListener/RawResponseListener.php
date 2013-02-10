@@ -23,14 +23,14 @@ class RawResponseListener extends ObjectBehavior
         $this->beConstructedWith($responseFactory);
     }
 
-    function it_should_return_null($event, $attributeBag, $response)
+    function it_should_return_null_when_its_not_a_hmvc_call($event, $attributeBag, $response)
     {
         $attributeBag->get('_hmvc')->willReturn(false);
         $event->setResponse()->shouldNotBeCalled();
         $this->onKernelView($event)->shouldReturn(null);
     }
 
-    function it_should_return_a_morket_response_object($event, $attributeBag, $response)
+    function it_should_return_a_hmvc_response_object($event, $attributeBag, $response)
     {
         $attributeBag->get('_hmvc')->willReturn(true);
         $event->setResponse($response)->shouldBeCalled();
@@ -38,7 +38,7 @@ class RawResponseListener extends ObjectBehavior
         $this->onKernelView($event);
     }
 
-    function it_should_contain_a_proper_result($event, $attributeBag, $response)
+    function it_should_contain_the_controller_result($event, $attributeBag, $response)
     {
         $attributeBag->get('_hmvc')->willReturn(true);
         $event->setResponse($response)->shouldBeCalled();
