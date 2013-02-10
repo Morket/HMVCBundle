@@ -143,6 +143,26 @@ class UsersController extends RadRestController
     }
 }
 ```
+**Somewhere else in your application:**
+``` php
+<?php
+namespace Acme\Controller;
+
+use Morket\Bundle\HMVCBundle\Controller\RadRestController;
+class InsaneController extends RadRestController
+{
+    public function insaneAction()
+    {
+        $user = $this->call('get_user', ['id' => 1]); // get a user
+        $users = $this->call('get_users', [], [], ['filter' => 'mor']); // get users by filter
+
+        $this->call('post_users', ['username' => 'morket', 'something' => 'abc']); // add a user
+        $this->call('put_user', ['id' => 1], ['username' => 'morket', 'something' => 'cba']); // update user
+        $this->call('delete_user', ['id' => 1]); // delete user
+    }
+}
+
+```
 
 As you can see, all cool stuff from FOSRestBundle and KnpRadBundle is usable, even the annotation like param specifications.
 If you look at the UsersController above, the application will be internally and externally callable like this:
