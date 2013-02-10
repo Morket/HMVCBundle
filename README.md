@@ -1,4 +1,4 @@
-Morket's HMVCBundle (NOT STABLE YET)
+Morket's HMVCBundle (BETA)
 ====================================
 [![Build Status](https://travis-ci.org/Morket/HMVCBundle.png)](http://travis-ci.org/Morket/HMVCBundle)
 
