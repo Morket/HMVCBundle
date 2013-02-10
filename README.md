@@ -20,7 +20,7 @@ How HMVCBundle works
 ----------------------------------
 The HMVCBundle uses Symfony's normal Request handling flow to make internal calls. It returns the returned data from the Controller
 and makes it available elsewhere. It's quite simular to Symfony's forward method, but without the whole HTML/JSON/XML rendering process.
-Currently using the HMVC trait adds one method to controllers:
+Currently using the HMVC trait (PHP 5.4+) adds one method to controllers:
 ``` php
 $this->call($route, $attributes = array(), $data = array(), $query = array(), $rawResponse = false)
 ```
@@ -35,9 +35,10 @@ Param            | Explanation
 You can still use your own Controllers, Event Listeners, Views, Templates and Serializers.
 The HMVCBundle won't affect normal behavior, it will only add functionality for internal requests.
 
-**Using the service: morket_hmvc.agent**
+**PHP 5.3: morket_hmvc.agent**
 
-You can also call the service **morket_hmvc.agent**, which has the same call() method as documented above.
+You could just call the service **morket_hmvc.agent**, which has the same call() method as documented above.
+It works exactly the same as the trait described in this README. Good examples will be added shortly.
 
 **kernel.view event**
 
