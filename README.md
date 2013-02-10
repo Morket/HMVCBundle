@@ -18,8 +18,9 @@ Each service is a MVC/PAC island. You could have a User service and a Product se
 How HMVCBundle works
 ----------------------------------
 The HMVCBundle uses Symfony's normal Request handling flow, adding a method to controllers which looks like:
+``` php
 $this->call($route, $attributes = array(), $data = array(), $query = array(), $rawResponse = false)
-
+```
 $route is the Symfony route
 $attributes are request/route attributes, which are defined as parameters in your Controller action methods
 $data is POST data
