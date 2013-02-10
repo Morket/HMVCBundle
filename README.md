@@ -36,6 +36,7 @@ You can still use your own Controllers, Event Listeners, Views, Templates and Se
 The HMVCBundle won't affect normal behavior, it will only add functionality for internal requests.
 
 **Using the service: morket_hmvc.agent**
+
 You can also call the service **morket_hmvc.agent**, which has the same call() method as documented above.
 
 **kernel.view event**
