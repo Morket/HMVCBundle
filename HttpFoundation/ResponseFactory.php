@@ -11,12 +11,14 @@ namespace Morket\Bundle\HMVCBundle\HttpFoundation;
 
 /**
  * Extended response containing raw data/objects returned from Controllers
+ *
+ * @author Erik Duindam <erik.duindam@morket.com>
  */
 class ResponseFactory
 {
     /**
      * Create new response object
-     * 
+     *
      * @return \Morket\Bundle\HMVCBundle\HttpFoundation\Response
      */
     public function createResponse()
