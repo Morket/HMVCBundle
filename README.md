@@ -146,8 +146,8 @@ Internal call  | External call
 $this->call('get_user', ['id' => 1]);                                                 | GET /users/1
 $this->call('get_users', [], [], ['filter' => 'mor']);                                | GET /users?filter=mor
 $this->call('post_users', ['username' => 'morket', 'something' => 'abc']);            | POST /users with username=morket&something=abc
-$this->call('put_user', ['id' => 1], ['username' => 'morket', 'something' => 'cba']); | PUT /user/1 with username=morket&something=cba
-$this->call('delete_user', ['id' => 1]);                                              | DELETE /user/1
+$this->call('put_user', ['id' => 1], ['username' => 'morket', 'something' => 'cba']); | PUT /users/1 with username=morket&something=cba
+$this->call('delete_user', ['id' => 1]);                                              | DELETE /users/1
 
 Do you spot the difference between post_users and put_user looking at the way of providing the data in the internal PHP call?
 When using methods parameters as in postUsersAction($username, $something), you should consider these request attributes instead of POST data.
