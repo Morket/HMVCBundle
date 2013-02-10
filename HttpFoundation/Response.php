@@ -18,7 +18,7 @@ class Response extends SymfonyResponse
 {
     protected $result;
 
-    public function setResult(array $result)
+    public function setResult(array $result = null)
     {
         $this->result = $result;
     }

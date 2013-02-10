@@ -122,7 +122,7 @@ class UsersController extends RadRestController
         $user->setSomething($something);
         $this->persist($user, true);
 
-        return $this->redirectView($this->generateUrl('get_user', ['id' => $user->getId()]), 201);
+        return $this->routeRedirectView('get_user', ['id' => $user->getId()], 201);
     }
 
     /**
@@ -135,7 +135,7 @@ class UsersController extends RadRestController
         $user->setSomething($this->getRequest()->get('something'));
         $this->persist($user, true);
 
-        return $this->redirectView($this->generateUrl('get_user', ['id' => $user->getId()]), 200);
+        return $this->routeRedirectView('get_user', ['id' => $user->getId()], 200);
     }
 
     /**
@@ -197,6 +197,18 @@ return only that element. You can see that in action in the examples above.
 The HMVC Response object is NOT used when returning a Response object from the controller. It will only be used when
 returning an array or View object from the Controller. So if you manually return Response objects everywhere (which is also done
 when returning $this->render()), the HMVC component won't be useful, because you'll be getting HTML/JSON/XML in your code.
+
+Redirects
+---------
+Looking at the HTTP specification, there are a lot of occasions where you would want to return a Location HTTP header.
+For example, after a POST you would want to return a 201 Created with the new resource in the Location header.
+In Symfony, we've got the RedirectResponse and in FOSRestBundle there's a RedirectView and RouteRedirectView.
+
+Currently HMVCBundle only properly supports FOSRestBundle's RouteDirectView, which can contain data. Usage is shown in the
+example above. In the near future we will add support for Symfony's native redirects. We will have to map the returned URL's
+back to routes and filter out the data. For example, when redirected to /users/1337, we would want to return ['id' => 1337].
+
+Feel free to contribute if you want to write this part. We use PHPSpec2 to describe behavior. 
 
 Todo's
 ----------------
