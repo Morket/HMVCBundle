@@ -1,0 +1,30 @@
+{
+    "name": "morket/hmvc-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 Bundle providing a fast Hierarchical Model View Controller (HMVC) solution utilizing Symfony's dispatch flow",
+    "keywords": ["hmvc", "pac", "rad", "rest"],
+    "homepage": "http://morket.github.com",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Erik Duindam",
+            "email": "erik.duindam@morket.com"
+        },
+    ],
+
+    "require": {
+        "php":                            ">=5.4.0",
+        "symfony/framework-bundle":       ">=2.0,<2.3-dev"
+    },
+    "suggest": {
+        "friendsofsymfony/rest-bundle":  "Add support for FOSRestBundle Controllers",
+        "knplabs/rad-bundle":            "Add support for Knp RadBundle Controllers",
+    },
+
+    "autoload": {
+        "psr-0": { "Morket\\Bundle\\HMVCBundle": "" }
+    },
+
+    "target-dir": "Morket/Bundle/RestBundle"
+}
