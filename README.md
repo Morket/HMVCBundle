@@ -196,9 +196,9 @@ when returning $this->render()), the HMVC component won't be useful, because you
 
 Todo's
 ----------------
-[] Testing
-[] PHP 5.3 support
-[] Add HMVC service to be injected by container
-[] Convention when returning redirects
-[] More/better examples in README
-[] Automatic caching mechanism
+1. Testing
+2. PHP 5.3 support
+3. Add HMVC service to be injected by container
+4. Convert redirects to data
+5. More/better examples in README
+6. Automatic caching mechanism
