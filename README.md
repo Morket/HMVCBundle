@@ -21,21 +21,27 @@ The HMVCBundle uses Symfony's normal Request handling flow, adding a method to c
 ``` php
 $this->call($route, $attributes = array(), $data = array(), $query = array(), $rawResponse = false)
 ```
-$route is the Symfony route
-$attributes are request/route attributes, which are defined as parameters in your Controller action methods
-$data is POST data
-$query is an array of query params / GET params
-$rawResponse will force HMVC to return a Symfony2 Response object instead of returning the data directly
+**$route** is the Symfony route
+
+**$attributes** are request/route attributes, which are defined as parameters in your Controller action methods
+
+**$data** is POST data
+
+**$query** is an array of query params / GET params
+
+**$rawResponse** will force HMVC to return a Symfony2 Response object instead of returning the data directly
 
 You can still use your own Controllers, Event Listeners, Views, Templates and Serializers.
 The HMVCBundle won't affect normal behavior, it will only add functionality for internal requests.
 
 
 **kernel.view event**
+
 However, it WILL probably and SHOULD block your kernel.view (onKernelView()) events when making an internal call. This is necessary to make sure no HTML/JSON/XML is rendered for internal (HMVC) requests. The kernel.view event is defined with priority 128, so it will block FOSRestBundle's and KnpRadBundle's kernel.view events, but you can still out-prioritize it. This is native Symfony behavior, Symfony will always allow only one kernel.view per (sub)request, because output can only be rendered once.
 (Note: kernel.view is fired when a Controller returns something else than a Response object, like an array of data or a View object)
 
 **Exceptions**
+
 When doing an internal HMVC call, any thrown Exceptions will be thrown through, meaning you can catch them in the Controller where you make the call. See examples below.
 
 How to use it
