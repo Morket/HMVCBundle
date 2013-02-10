@@ -21,19 +21,16 @@ The HMVCBundle uses Symfony's normal Request handling flow, adding a method to c
 ``` php
 $this->call($route, $attributes = array(), $data = array(), $query = array(), $rawResponse = false)
 ```
-**$route** is the Symfony route
-
-**$attributes** are request/route attributes, which are defined as parameters in your Controller action methods
-
-**$data** is POST data
-
-**$query** is an array of query params / GET params
-
-**$rawResponse** will force HMVC to return a Symfony2 Response object instead of returning the data directly
+Param            | Explanation
+-----------------|------------------------------------------------------------------------------------------------
+**$route**       | is the Symfony route
+**$attributes**  | are request/route attributes, which are defined as parameters in your Controller action methods
+**$data**        | is POST data
+**$query**       | is an array of query params / GET params
+**$rawResponse** | will force HMVC to return a Symfony2 Response object instead of returning the data directly
 
 You can still use your own Controllers, Event Listeners, Views, Templates and Serializers.
 The HMVCBundle won't affect normal behavior, it will only add functionality for internal requests.
-
 
 **kernel.view event**
 
