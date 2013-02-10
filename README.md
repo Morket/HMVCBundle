@@ -66,7 +66,7 @@ class ProductsController extends Controller
         try {
             $user = $this->call('get_user', ['id' => $this->getRequest()->get('user_id')]);
             // do something
-        } catch (NotFoundException $e) {
+        } catch (NotFoundHttpException $e) {
             // user not found
         }
     }
