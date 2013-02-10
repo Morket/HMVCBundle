@@ -190,6 +190,37 @@ When using methods parameters as in postUsersAction($username, $something), you 
 If you are using a normal approach, calling either $request->get('something') or $paramFetcher->get('something'), you should
 consider the data POST data.
 
+Avoiding Service Locator + usage in PHP 5.3
+--------------------------------------------
+The HMVC trait uses $this->get() from the Controller, which is a Service Locator. You might consider the Service Locator
+an anti-pattern. In that case you want to inject the HMVC agent into the Controller or instantiate it yourself. The default
+morket_hmvc.agent service is defined within the container's request scope, meaning it will be created again for each new
+request instance. Since the Request parameter is optional in the Agent class, you can create your own service to do
+whatever you like.
+
+The following example shows the direct usage of the morket_hmvc.agent service, as a replacement for the PHP 5.4 trait.
+``` php
+<?php
+namespace Acme\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+class ProductsController extends Controller
+{
+    public function getProductsAction()
+    {
+        try {
+            $user = $this->get('morket_hmvc.agent')
+                         ->call('get_user', ['id' => $this->getRequest()->get('user_id')]);
+            // do something
+        } catch (NotFoundHttpException $e) {
+            // user not found
+        }
+    }
+}
+```
+
 Magical convertions
 -------------------
 The HMVCBundle provides a custom Response object extending Symfony's normal HTTP Response object.

@@ -38,11 +38,11 @@ class Agent
     protected $httpKernel;
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Symfony\Bundle\FrameworkBundle\Routing\Router $router
      * @param \Symfony\Bundle\FrameworkBundle\HttpKernel $httpKernel
+     * @param \Symfony\Component\HttpFoundation\Request $request
      */
-    public function __construct(Request $request, Router $router, HttpKernel $httpKernel)
+    public function __construct(Router $router, HttpKernel $httpKernel, Request $request = null)
     {
         $this->request = $request;
         $this->router = $router;
@@ -69,9 +69,14 @@ class Agent
      * @param array $query
      * @param bool $rawResponse
      * @return mixed
+     * @throws \RuntimeException
      */
     public function call($route, $attributes = array(), $data = array(), $query = array(), $rawResponse = false)
     {
+        if (empty($this->request)) {
+            throw new \RuntimeException('No Request set, so cannot make internal HMVC call');
+        }
+
         $defaults = $this->router->getRouteCollection()->get($route)->getDefaults();
 
         $controller = $defaults['_controller'];
