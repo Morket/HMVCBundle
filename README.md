@@ -207,7 +207,7 @@ Looking at the HTTP specification, there are a lot of occasions where you would 
 For example, after a POST you would want to return a 201 Created with the new resource in the Location header.
 In Symfony, we've got the RedirectResponse and in FOSRestBundle there's a RedirectView and RouteRedirectView.
 
-Currently HMVCBundle only properly supports FOSRestBundle's RouteDirectView, which can contain data. Usage is shown in the
+Currently HMVCBundle only properly supports FOSRestBundle's RouteRedirectView, which can contain data. Usage is shown in the
 example above. In the near future we will add support for Symfony's native redirects. We will have to map the returned URL's
 back to routes and filter out the data. For example, when redirected to /users/1337, we would want to return ['id' => 1337].
 
