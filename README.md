@@ -17,7 +17,9 @@ Each service is a MVC/PAC island. You could have a User service and a Product se
 
 How HMVCBundle works
 ----------------------------------
-The HMVCBundle uses Symfony's normal Request handling flow, adding a method to controllers which looks like:
+The HMVCBundle uses Symfony's normal Request handling flow to make internal calls. It returns the returned data from the Controller
+and makes it available elsewhere. It's quite simular to Symfony's forward method, but without the whole HTML/JSON/XML rendering process.
+Currently using the HMVC trait adds one method to controllers:
 ``` php
 $this->call($route, $attributes = array(), $data = array(), $query = array(), $rawResponse = false)
 ```
@@ -157,3 +159,24 @@ Do you spot the difference between post_users and put_user looking at the way of
 When using methods parameters as in postUsersAction($username, $something), you should consider these request attributes instead of POST data.
 If you are using a normal approach, calling either $request->get('something') or $paramFetcher->get('something'), you should
 consider the data POST data.
+
+Magical convertions
+-------------------
+The HMVCBundle provides a custom Response object extending Symfony's normal HTTP Response object.
+When using the call method, HMVCBundle will automatically get the data from the Response object and return only
+the data directly to you. If the Controller response is an array or FOSRestBundle View with only one element of data, it will
+return only that element. You can see that in action in the examples above.
+
+
+The HMVC Response object is NOT used when returning a Response object from the controller. It will only be used when
+returning an array or View object from the Controller. So if you manually return Response objects everywhere (which is also done
+when returning $this->render()), the HMVC component won't be useful, because you'll be getting HTML/JSON/XML in your code.
+
+Todo's
+----------------
+[] Testing
+[] PHP 5.3 support
+[] Add HMVC service to be injected by container
+[] Convention when returning redirects
+[] More/better examples in README
+[] Automatic caching mechanism
