@@ -255,7 +255,8 @@ Todo's
 Need help or want to contribute?
 --------------------------------
 Feel completely free to use the Issues on Github for any questions or comments on HMVCBundle or best practices
-when combining several bundles. Also feel free to send me a mail on <erik@morket.com>.
+when combining several bundles. Also feel free to send me a mail on <erik@morket.com>. Also check our new
+Twitter account on [@MorketDev](http://twitter.com/MorketDev).
 
 MIT License
 -------------------------------------------------------------------------------
