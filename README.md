@@ -134,7 +134,7 @@ class UsersController extends RadRestController
      */
     public function putUserAction($id)
     {
-        $user = new User;
+        $user = $this->call('get_user', ['id' => $id]);
         $user->setUsername($this->getRequest()->get('username'));
         $user->setSomething($this->getRequest()->get('something'));
         $this->persist($user, true);
