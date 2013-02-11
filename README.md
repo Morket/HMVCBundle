@@ -235,12 +235,12 @@ when returning $this->render()), the HMVC component won't be useful, because you
 
 Redirects
 ---------
-Looking at the HTTP specification, there are a lot of occasions where you would want to return a Location HTTP header.
-For example, after a POST you would want to return a 201 Created with the new resource in the Location header.
-In Symfony, we've got the RedirectResponse and in FOSRestBundle there's a RedirectView and RouteRedirectView.
+Considering the HTTP specification and a RESTful architecture, there are a lot of occasions where you would want to return a Location HTTP header.
+For example, after a POST you would might want to return a 201 Created with the new resource in the Location header.
+Symfony's  got the RedirectResponse object and FOSRestBundle's got a RedirectView and RouteRedirectView.
 
-Currently HMVCBundle only properly supports FOSRestBundle's RouteRedirectView, which can contain data. Usage is shown in the
-example above. In the near future we will add support for Symfony's native redirects. We will have to map the returned URL's
+Currently HMVCBundle only properly supports FOSRestBundle's RouteRedirectView, because it can contain data. Usage is shown in the
+example above. In the near future we will add support for Symfony's native redirects. We will have to map the Location header URL's
 back to routes and filter out the data. For example, when redirected to /users/1337, we would want to return ['id' => 1337].
 
 Feel free to contribute if you want to write this part. We use PHPSpec2 to describe behavior.
