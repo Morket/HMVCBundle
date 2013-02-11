@@ -16,10 +16,8 @@ We aim for a Presentation Abstraction Control (PAC) approach of web development.
 
 Each service is a MVC/PAC 'island', or triad. You could have a User service and a Product service, who always call each other via the Control element of the service. And because the Control layer is implemented as Symfony2 Controllers, they are also callable from the outside. Using RESTful Bundles like FOSRestBundle or KnpRadBundle, you automatically create an internal and external RESTful API to all your services.
 
-![HMVC](http://techportal.inviqa.com/wp-content/uploads/2010/02/MVC-HMVC.png)
+![Presentation Abstraction Controller image](http://upload.wikimedia.org/wikipedia/commons/4/4a/Pac-schema.png)
 
-HMVC image credits go to Sam de Freyssinet @ http://techportal.inviqa.com/2010/02/22/scaling-web-applications-with-hmvc/.
-I must disagree with the MVC part of this image, because the View should be able to call the Model.
 
 How HMVCBundle works
 ----------------------------------
