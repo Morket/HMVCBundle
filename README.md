@@ -4,7 +4,7 @@ Morket's HMVCBundle (ALPHA, in development)
 
 Why are external application calls using a RESTful interface while internal application calls consist of many custom Model methods? Why are internal services different from external services? They shouldn't. The current web is a cloud with services, now you're application can be as well.
 
-The HMVCBundle is a Symfony2 Bundle providing a fast Hierarchical Model View Controller (HMVC) solution utilizing Symfony's dispatch flow to call internal services in the same way you would call it externally. It integrates fully with RESTful controllers from FOSRestBundle, KnpRadBundle and native Symfony.
+The HMVCBundle is a Symfony2 Bundle providing a fast Hierarchical Model View Controller (HMVC) solution utilizing Symfony's dispatch flow to call internal services in the same way you would call them externally. It integrates fully with RESTful and non-RESTful controllers from FOSRestBundle, KnpRadBundle and native Symfony.
 
 Concept
 -----------
