@@ -18,7 +18,8 @@ Each service is a MVC/PAC 'island', or triad. You could have a User service and 
 
 ![HMVC](http://techportal.inviqa.com/wp-content/uploads/2010/02/MVC-HMVC.png)
 
-HMVC image credits go to Sam de Freyssinet @ http://techportal.inviqa.com/2010/02/22/scaling-web-applications-with-hmvc/
+HMVC image credits go to Sam de Freyssinet @ http://techportal.inviqa.com/2010/02/22/scaling-web-applications-with-hmvc/.
+I must disagree with the MVC part of this image, because the View should be able to call the Model.
 
 How HMVCBundle works
 ----------------------------------
