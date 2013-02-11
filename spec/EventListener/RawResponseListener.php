@@ -25,7 +25,7 @@ class RawResponseListener extends ObjectBehavior
         $this->beConstructedWith($responseFactory);
     }
 
-    function its_kernel_view_should_return_null_when_its_not_a_hmvc_call($event, $attributeBag)
+    function its_kernel_view_should_not_change_response_when_its_not_a_hmvc_call($event, $attributeBag)
     {
         $attributeBag->get('_hmvc')->willReturn(false);
         $event->setResponse()->shouldNotBeCalled();
@@ -67,7 +67,7 @@ class RawResponseListener extends ObjectBehavior
         $this->onKernelView($event);
     }
 
-    function its_kernel_exception_should_return_null_when_its_not_a_hmvc_call($exceptionEvent, $attributeBag)
+    function its_kernel_exception_should_not_throw_exception_when_its_not_a_hmvc_call($exceptionEvent, $attributeBag)
     {
         $attributeBag->get('_hmvc')->willReturn(false);
         $exceptionEvent->getException()->shouldNotBeCalled();
