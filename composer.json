@@ -32,5 +32,5 @@
         "psr-0": { "Morket\\Bundle\\HMVCBundle": "" }
     },
 
-    "target-dir": "Morket/Bundle/RestBundle"
+    "target-dir": "Morket/Bundle/HMVCBundle"
 }

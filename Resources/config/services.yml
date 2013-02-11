@@ -1,10 +1,13 @@
 services:
+  
     morket_hmvc.agent:
         class: Morket\Bundle\HMVCBundle\HMVC\Agent
         scope: request
         arguments: [@router, @http_kernel, @request]
+
     morket_hmvc.response_factory:
         class: Morket\Bundle\HMVCBundle\HttpFoundation\ResponseFactory
+
     morket_hmvc.raw_response_listener:
         class: Morket\Bundle\HMVCBundle\EventListener\RawResponseListener
         arguments: [@morket_hmvc.response_factory]
