@@ -237,7 +237,7 @@ Redirects
 ---------
 Considering the HTTP specification and a RESTful architecture, there are a lot of occasions where you would want to return a Location HTTP header.
 For example, after a POST you would might want to return a 201 Created with the new resource in the Location header.
-Symfony's  got the RedirectResponse object and FOSRestBundle's got a RedirectView and RouteRedirectView.
+Symfony's  got the RedirectResponse object and FOSRestBundle's got a RedirectView and RouteRedirectView to make this easy for you.
 
 Currently HMVCBundle only properly supports FOSRestBundle's RouteRedirectView, because it can contain data. Usage is shown in the
 example above. In the near future we will add support for Symfony's native redirects. We will have to map the Location header URL's
