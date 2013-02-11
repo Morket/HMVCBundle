@@ -14,7 +14,7 @@ Our statement is that Model View Controller is not that suitable for modern web 
 
 We aim for a Presentation Abstraction Control (PAC) approach of web development. Look at a Controller as an entrance to one service within your application. See it as a Control element handling flow, rather than application logic. Your Control layer can call a Form or Doctrine Repository directly, it can perform validation and it can have some business logic. When it gets complex, naturally you will write Abstraction classes to solve this complexity. PAC encourages this. Your Presentation layer will be used for template rendering or serialization (to JSON/XML for example). A template within the Presentation layer could or could not call another Control element to present some extra stuff, like a logged in user on top of a page.
 
-Each service is a MVC/PAC island. You could have a User service and a Product service, which always call each other via the Control element of the service. And because the Control layer is implemented as Symfony2 Controllers, they are also callable from the outside. Using RESTful Bundles like FOSRestBundle or KnpRadBundle, you automatically create an internal and external RESTful API to all your services.
+Each service is a MVC/PAC 'island', or triad. You could have a User service and a Product service, who always call each other via the Control element of the service. And because the Control layer is implemented as Symfony2 Controllers, they are also callable from the outside. Using RESTful Bundles like FOSRestBundle or KnpRadBundle, you automatically create an internal and external RESTful API to all your services.
 
 How HMVCBundle works
 ----------------------------------
