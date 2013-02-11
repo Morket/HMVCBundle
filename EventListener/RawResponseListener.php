@@ -10,7 +10,6 @@
 
 namespace Morket\Bundle\HMVCBundle\EventListener;
 
-use Morket\Bundle\HMVCBundle\HttpFoundation\Response;
 use Morket\Bundle\HMVCBundle\HttpFoundation\ResponseFactory;
 
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
