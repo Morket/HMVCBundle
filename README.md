@@ -252,8 +252,9 @@ Todo's
 ----------------
 1. Testing
 2. Convert redirects to data
-3. More/better examples in README
-4. Contribute to FOSRestBundle/KnpRadBundle to be able to use both Controllers without copying code
+3. Add Common library to serialize Forms to proper data when doing external REST call (Form errors don't serialize well currently)
+4. More/better examples in README
+5. Contribute to FOSRestBundle/KnpRadBundle to be able to use both Controllers without copying code
 
 Need help or want to contribute?
 --------------------------------
