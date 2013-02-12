@@ -55,6 +55,8 @@ class RawResponseListener
             $response->setResult($result);
         } elseif ($result instanceof \FOS\RestBundle\View\View) {
             $response->setResult($result->getData());
+        } else if ($result instanceof \Morket\Bundle\HMVCBundle\HttpFoundation\Response) {
+            $response = $result;
         }
 
         $event->setResponse($response);
